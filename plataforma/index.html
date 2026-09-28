@@ -6,41 +6,51 @@
 <title>Inducción Flyzar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap">
 <style>
-/* Layout: barra superior tipo panel de despacho + columna de trabajo de 1100px; las etapas se leen como un checklist de cabina. */
+/* Layout: barra superior Dress Blue con el logo + columna de trabajo de 1100px; las etapas se leen como un checklist de cabina.
+   Marca (Brandbook Flyzar): Dress Blue #2a3440 principal, neutros cálidos, Proxima Nova (sustituto web: Figtree) y Tribun italic para detalles (sustituto web: Newsreader italic). */
 :root {
-  --bg: #f2f4f6;
+  --bg: #e9e9e8;
   --surface: #ffffff;
-  --ink: #14202b;
-  --muted: #5a6774;
-  --line: #d6dde4;
-  --accent: #c8440c;       /* naranja internacional, el color de seguridad aeronáutica */
-  --accent-ink: #ffffff;
-  --ok: #2b7a3b;
-  --warn: #9a6512;
-  --bad: #c0262d;
-  --ok-bg: #e5f2e7;
-  --warn-bg: #fbf0dc;
-  --bad-bg: #fbe5e5;
-  --mark: #fff1c2;
-  --f-display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
-  --f-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --ink: #1f2426;
+  --muted: #5f5753;
+  --line: #d4d2d0;
+  --accent: #2a3440;       /* Dress Blue, Pantone 19-4024 TCX */
+  --accent-ink: #e9e9e8;
+  --soft: #d4d6d4;
+  --sand: #988d85;
+  --bar: #2a3440;
+  --bar-ink: #e9e9e8;
+  --ok: #3b6b4c;
+  --warn: #8a6420;
+  --bad: #a3342e;
+  --ok-bg: #e2ece4;
+  --warn-bg: #f3ebdc;
+  --bad-bg: #f5e3e1;
+  --mark: #ece4d8;
+  --f-display: "Figtree", "Proxima Nova", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body: "Figtree", "Proxima Nova", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-detalle: "Newsreader", "Tribun ADF Std", Georgia, serif;
+  --f-mono: var(--f-body);
   --r: 6px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0d141b; --surface: #15202a; --ink: #e4ebf1; --muted: #93a2b0; --line: #26343f;
-    --accent: #ff7a3d; --accent-ink: #1a0d05; --ok: #6ccf7f; --warn: #f0b64a; --bad: #ff7373;
-    --ok-bg: #16301d; --warn-bg: #33270f; --bad-bg: #3a1717; --mark: #4a3a0a;
+    --bg: #1f2426; --surface: #262e35; --ink: #e9e9e8; --muted: #b0b3b5; --line: #3a444d;
+    --accent: #d4d6d4; --accent-ink: #1f2426; --soft: #3a444d; --sand: #988d85;
+    --bar: #2a3440; --bar-ink: #e9e9e8;
+    --ok: #8cc39c; --warn: #d9b36a; --bad: #e38a82;
+    --ok-bg: #22362a; --warn-bg: #3a3020; --bad-bg: #3d2523; --mark: #443a37;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0d141b; --surface: #15202a; --ink: #e4ebf1; --muted: #93a2b0; --line: #26343f;
-  --accent: #ff7a3d; --accent-ink: #1a0d05; --ok: #6ccf7f; --warn: #f0b64a; --bad: #ff7373;
-  --ok-bg: #16301d; --warn-bg: #33270f; --bad-bg: #3a1717; --mark: #4a3a0a;
+  --bg: #1f2426; --surface: #262e35; --ink: #e9e9e8; --muted: #b0b3b5; --line: #3a444d;
+  --accent: #d4d6d4; --accent-ink: #1f2426; --soft: #3a444d; --sand: #988d85;
+  --bar: #2a3440; --bar-ink: #e9e9e8;
+  --ok: #8cc39c; --warn: #d9b36a; --bad: #e38a82;
+  --ok-bg: #22362a; --warn-bg: #3a3020; --bad-bg: #3d2523; --mark: #443a37;
   color-scheme: dark;
 }
 
@@ -48,27 +58,29 @@
 body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.5 var(--f-body); }
 a { color: inherit; }
 .mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
-h1, h2 { font-family: var(--f-display); font-weight: 700; letter-spacing: .01em; text-wrap: balance; margin: 0; }
-h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.05; }
-h2 { font-size: 1.35rem; line-height: 1.15; }
+h1, h2 { font-family: var(--f-display); font-weight: 300; letter-spacing: -.01em; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.08; }
+h1 em, h2 em, .lema em { font-family: var(--f-detalle); font-style: italic; font-weight: 400; letter-spacing: 0; }
+h2 { font-size: 1.3rem; line-height: 1.2; font-weight: 500; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* barra superior */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--ink); color: var(--bg); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bar); color: var(--bar-ink); }
 .top-in { max-width: 1100px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-.marca { font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-.marca span { font-family: var(--f-mono); font-weight: 400; font-size: .75rem; letter-spacing: .1em; opacity: .7; }
-.marca::before { content: ""; width: 12px; height: 12px; background: var(--accent); transform: rotate(45deg); }
+.marca { text-decoration: none; display: flex; align-items: center; gap: 14px; }
+.marca svg { height: 34px; width: auto; display: block; }
+.marca span { font-size: .72rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; opacity: .7; padding-left: 14px; border-left: 1px solid color-mix(in srgb, var(--bar-ink) 35%, transparent); }
 .nav { display: flex; gap: 4px; margin-left: auto; }
 .nav a { text-decoration: none; padding: 6px 12px; border-radius: var(--r); font-weight: 500; opacity: .75; }
 .nav a:hover { opacity: 1; }
-.nav a[aria-current="page"] { opacity: 1; background: color-mix(in srgb, var(--bg) 14%, transparent); }
+.nav a[aria-current="page"] { opacity: 1; background: color-mix(in srgb, var(--bar-ink) 14%, transparent); }
 
+.lema { max-width: 1100px; margin: 0 auto; padding: 0 16px 40px; color: var(--sand); font-size: 1.05rem; }
 main { max-width: 1100px; margin: 0 auto; padding: 28px 16px 64px; display: flex; flex-direction: column; gap: 20px; }
 
 .cab { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
 .cab > div { min-width: 0; }
-.eyebrow { margin: 0 0 4px; font-family: var(--f-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.eyebrow { margin: 0 0 6px; font-size: .75rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 .bajada { margin: 8px 0 0; color: var(--muted); max-width: 65ch; }
 .volver { color: var(--muted); text-decoration: none; font-size: .9rem; }
 .volver:hover { color: var(--ink); }
@@ -76,7 +88,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 28px 16px 64px; display: flex
 .btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: var(--r); border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 600 .95rem var(--f-body); text-decoration: none; cursor: pointer; }
 .btn:hover { border-color: var(--muted); }
 .btn-pri { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-.btn-pri:hover { border-color: var(--ink); }
+.btn-pri:hover { background: color-mix(in srgb, var(--accent) 88%, var(--ink)); }
 .btn-mal { background: var(--bad); border-color: var(--bad); color: var(--surface); }
 .btn-chico { padding: 5px 12px; font-size: .85rem; margin-top: 8px; }
 .link { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); text-decoration: underline; cursor: pointer; }
@@ -84,7 +96,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 28px 16px 64px; display: flex
 /* indicadores */
 .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .kpi { background: var(--surface); padding: 14px 16px; display: flex; flex-direction: column; color: var(--muted); font-size: .9rem; }
-.kpi-v { font-size: 1.9rem; font-weight: 500; color: var(--ink); line-height: 1.2; }
+.kpi-v { font-size: 2.1rem; font-weight: 300; color: var(--ink); line-height: 1.2; }
 .kpi-mal .kpi-v { color: var(--bad); }
 
 .barra-filtros { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -106,13 +118,14 @@ select, input[type="text"], input:not([type]), input[type="date"] { font: inheri
 .fila-avance { display: flex; align-items: center; gap: 10px; font-size: .85rem; }
 .fila-estado { justify-self: end; }
 .barra { flex: 1; height: 6px; min-width: 60px; background: var(--line); border-radius: 3px; overflow: hidden; display: block; }
+.barra { background: var(--soft); }
 .barra > span { display: block; height: 100%; background: var(--accent); }
 
-.pill { display: inline-block; font: 500 .72rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
+.pill { display: inline-block; font: 600 .7rem var(--f-body); letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
 .pill-atrasado { background: var(--bad-bg); color: var(--bad); }
 .pill-aldia { background: var(--ok-bg); color: var(--ok); }
 .pill-proximo { background: var(--warn-bg); color: var(--warn); }
-.pill-completo { background: var(--ink); color: var(--bg); }
+.pill-completo { background: var(--accent); color: var(--accent-ink); }
 .tag-ej { font: 500 .68rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 0 5px; border-radius: 3px; vertical-align: middle; }
 .txt-mal { color: var(--bad) !important; }
 .txt-ok { color: var(--ok); }
@@ -139,7 +152,7 @@ select, input[type="text"], input:not([type]), input[type="date"] { font: inheri
 .etapa { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .etapa-cab { display: flex; align-items: baseline; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
 .etapa-meta { margin-left: auto; font-size: .8rem; color: var(--muted); }
-.codigo { display: inline-block; min-width: 3.4em; text-align: center; font-size: .75rem; font-weight: 500; padding: 2px 6px; border: 1px solid var(--ink); border-radius: 3px; }
+.codigo { display: inline-block; min-width: 3.4em; text-align: center; font-size: .72rem; font-weight: 600; letter-spacing: .06em; padding: 2px 6px; border: 1px solid var(--ink); border-radius: 3px; }
 .tareas { list-style: none; margin: 0; padding: 0; }
 .tarea { display: flex; gap: 14px; padding: 14px 16px; border-top: 1px solid var(--line); }
 .tarea:first-child { border-top: 0; }
@@ -201,13 +214,14 @@ code { font-family: var(--f-mono); font-size: .88em; background: var(--surface);
 </head>
 <body>
 <div class="top"><div class="top-in">
-  <a class="marca" href="#panel">Flyzar <span>Inducción</span></a>
+  <a class="marca" href="#panel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="558.05 456.98 742.72 272.55" fill="currentColor" role="img" aria-label="Flyzar" focusable="false"><path d="M975.29 596.38L983.3 594.61L987.3 593.73L988.24 593.54L981.03 571.02C978.09 561.84 969.55 555.61 959.91 555.61L973.21 596.85C973.91 596.7 974.6 596.54 975.29 596.38"/><path d="M1007.4 589.7C1012.47 588.73 1017.55 587.85 1022.63 586.93L1043.64 555.61C1032.79 555.61 1022.68 561.13 1016.81 570.25L1003.85 590.41L1007.4 589.7"/><path d="M911.73 612.91C912.99 612.53 914.26 612.16 915.53 611.79L922.29 573.44C923.93 564.14 916.77 555.61 907.33 555.61L896.37 617.75C901.47 616.08 906.59 614.47 911.73 612.91"/><path d="M1295.25 562.96C1294.69 562.09 1294.04 561.29 1293.3 560.61C1288.78 556.4 1280.19 554.3 1267.54 554.3C1251.89 554.3 1239.7 554.74 1230.95 555.61L1229.28 565.06C1251.26 564.04 1273.26 563.35 1295.25 562.96"/><path d="M1169.77 568.7C1176.24 568.2 1182.72 567.75 1189.2 567.32L1188.24 560.39C1187.93 557.2 1186.04 555.61 1182.56 555.61L1164.89 555.61C1161.41 555.61 1158.96 557.2 1157.53 560.39L1152.77 570.07C1158.43 569.58 1164.1 569.13 1169.77 568.7"/><path d="M1092.36 576.45C1099.79 575.52 1107.22 574.64 1114.66 573.82L1117.67 570.39L1120.27 555.61L1051.9 555.61C1050.54 563.32 1056.47 570.39 1064.3 570.39L1097.68 570.39L1092.36 576.45"/><path d="M832.07 637.38L836.52 612.11L861.66 612.11C869.91 612.11 876.97 606.18 878.4 598.05L839 598.05L842.4 578.79C842.94 575.7 843.95 573.52 845.43 572.27C846.9 571.01 849.24 570.38 852.42 570.38L875.36 570.38C883.17 570.38 889.97 565.07 891.86 557.5L892.08 556.62C883.74 555.75 869.62 555.32 849.72 555.32C843.15 555.32 837.63 557.06 833.16 560.53C828.68 564.01 825.9 568.84 824.81 575.02L810.46 655.93C821.17 655.68 830.21 647.92 832.07 637.38"/><path d="M1110.93 578.08C1103.31 579.1 1095.71 580.17 1088.11 581.3L1036.01 640.79L1033.4 655.56L1088.66 655.56C1097.34 655.56 1104.76 649.33 1106.27 640.79L1056 640.79L1110.93 578.08"/><path d="M1173.44 570.99C1173.54 572.41 1173.73 574.72 1173.99 577.92L1177.91 612.4L1149.52 612.4L1165.59 577.92L1168.48 571.46C1162.73 572.02 1156.97 572.61 1151.22 573.22L1110.76 655.56C1122.08 655.56 1132.37 649.02 1137.17 638.77L1142.54 627.32L1179.63 627.32L1180.77 637.15C1181.98 647.64 1190.88 655.56 1201.44 655.56L1189.51 569.53C1184.15 570 1178.79 570.48 1173.44 570.99"/><path d="M1278.54 584.73C1277.47 590.81 1275.55 594.96 1272.8 597.18C1270.04 599.41 1265.42 600.57 1258.93 600.66L1240.97 600.66L1246.51 569.23L1264.47 569.23C1270.94 569.23 1275.17 570.29 1277.17 572.41C1279.16 574.54 1279.62 578.64 1278.54 584.73M1229.02 566.51L1213.32 655.56C1223.71 655.56 1232.6 648.11 1234.4 637.87L1238.36 615.44L1256.3 615.58C1262.19 615.58 1265.52 618.58 1266.3 624.56L1267.26 636.36C1268.13 647.21 1277.19 655.56 1288.07 655.56L1288.07 655.56L1284.61 624.27C1284.41 619.93 1283.27 616.55 1281.18 614.13C1279.09 611.72 1276.66 610.17 1273.89 609.5L1274.01 608.77C1280.83 607.9 1286.05 605.42 1289.67 601.31C1293.29 597.21 1295.78 591.29 1297.15 583.57C1298.77 574.36 1298.16 567.53 1295.32 563.06C1273.2 563.9 1251.1 565.03 1229.02 566.51"/><path d="M1008.57 595.49L999.26 597.55L993.53 606.46L992.38 606.46L990.17 599.56L988.67 599.9L984.7 600.85L975.25 603.14C975.25 603.14 975.25 603.15 975.25 603.15L981.17 621.52L975.17 655.56C985.64 655.56 994.6 648.05 996.42 637.73L999.23 621.81L1018.21 593.52C1014.99 594.16 1011.78 594.81 1008.57 595.49"/><path d="M912.67 638.69C911.62 637.48 911.38 635.33 911.92 632.24L914 620.45C907.54 622.55 901.12 624.75 894.73 627.03L893.3 635.14C890.87 648.95 897.13 655.85 912.1 655.85C921.78 655.85 930.26 655.71 937.54 655.43C945.88 655.11 952.75 648.78 953.78 640.5L919.01 640.5C915.82 640.5 913.71 639.9 912.67 638.69"/><path d="M622.22 544.44C610.76 549.32 596.62 557.82 596.62 557.82C611.4 546.76 626.75 540.75 628.07 540.25C627.95 539.79 626.57 536.25 614.39 542.25C614.39 542.25 619.51 534.69 624.63 532.4C624.63 532.4 622.28 535.24 623.29 537.04C626.65 535.36 630.36 533.91 633.19 533.83L633.18 533.85C634.54 533.81 636.21 533.98 638.24 534.52C638.24 534.52 634.42 534.32 632.76 535.26C642.01 535.09 647.1 540.19 647.1 540.19C641.63 539.69 635.78 540.55 631.37 541.51C628.22 542.2 625.16 543.19 622.22 544.44M651.24 496.8C697.76 458.98 729.19 505.47 729.19 505.47C689.45 470.77 651.24 496.8 651.24 496.8M658.28 524.92C702.72 556.93 669.29 615.39 669.29 615.39C691.78 555.01 658.28 524.92 658.28 524.92M686.49 512.88C686.49 512.88 689.65 513.1 692.52 515.07C692.52 515.07 684.2 507.71 675.75 507.23C675.75 507.23 684.08 498.31 691.51 500.34C698.94 502.37 703.74 515.25 696.26 531.21C695.78 532.23 693.41 516.97 686.49 512.88M570.04 620.2C570.13 621.91 570.35 623.46 570.68 624.86C569.59 639.54 578.23 649.04 587.56 654.95C586.55 651.28 585.33 644.34 588.4 638.65C588.4 638.65 602.01 660.2 608.79 663.58C608.7 641.22 625.17 625.36 629.62 620.61C632.12 617.94 634.43 615.06 636.43 611.93C643.08 601.58 653.57 580.39 648.55 555.55C655.34 579.41 650.83 605.33 636.44 624.94C631.25 632 626.25 638.35 623.31 643.65C622.12 645.79 621.07 648.11 620.14 650.52C612.33 683.22 656.5 727.53 656.5 727.53C655.16 704.6 680.61 674.74 680.61 674.74C676.59 701.28 693.74 719.38 693.74 719.38C694 706.41 716.24 688.01 738.74 652.48C761.24 616.96 736.86 567.94 736.86 567.94C758.02 582.12 752.67 635.82 752.67 635.82C791.24 569.15 724.27 521.78 724.27 521.78C733.91 522.39 754.54 542.6 754.54 542.6C754.54 527.52 742.22 478.64 698.02 471.71C653.82 464.77 634.27 498.86 634.27 498.86C635.27 488.76 643.38 477.14 643.38 477.14C599.98 484.08 595.09 532.08 595.09 532.08C596.62 533.32 598.01 534.84 598.01 534.84L592.3 539.4C591.51 540.04 590.74 540.7 590 541.39C586.77 544.39 577.42 552.37 570.9 559.14C567.13 563.15 564.26 566.07 563.6 566.73C563.5 566.83 563.42 566.93 563.35 567.05C562.52 568.38 562.19 569.48 562.17 570.86C569.63 571.3 576.19 568.05 582.76 566.4C589.16 564.78 592 569.46 592 569.46C585.55 569.38 579.63 573.49 579.63 573.49C582.77 572.43 585.85 573.4 585.85 573.4C583.01 574.85 574.95 583.93 574.88 585.87C574.81 587.82 581.68 600.35 581.68 600.35C601.51 600.26 614.68 610.76 614.68 610.76C613.17 612.18 608.53 612.39 608.53 612.39C603.06 605.98 579.7 602.81 579.7 602.81C578.68 603.08 576.09 606.1 573.9 608.86C571.24 612.2 569.85 616.19 570.04 620.2"/><path d="M566.17 576.65C563.47 576.89 562.3 577.74 562.3 577.74C567.74 578.62 570.62 586.17 571.31 586.74C572.54 587.74 576.88 600.36 576.88 600.36C577.59 602.53 574.9 603.98 574.9 603.98C563.78 601.81 560.05 576.85 560.05 576.85C561.6 575.63 566.17 576.65 566.17 576.65"/></svg><span>Inducción</span></a>
   <nav class="nav" aria-label="Secciones">
     <a href="#panel">Panel</a>
     <a href="#programa">Programa</a>
   </nav>
 </div></div>
 <main id="vista"></main>
+<p class="lema">Where flying is <em>natural.</em></p>
 <script src="contenido.js"></script>
 <script src="app.js"></script>
 </body>

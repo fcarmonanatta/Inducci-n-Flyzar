@@ -185,7 +185,7 @@
     }).join("");
 
     raiz.innerHTML =
-      '<header class="cab"><div><p class="eyebrow">Panel de RR.HH.</p><h1>Ingresos en inducción</h1></div>' +
+      '<header class="cab"><div><p class="eyebrow">Panel de RR.HH.</p><h1>Ingresos en <em>inducción</em></h1></div>' +
         '<a class="btn btn-pri" href="#nuevo">Registrar ingreso</a></header>' +
       '<section class="kpis" aria-label="Resumen">' +
         kpi(activos.length, "en inducción") +
@@ -219,7 +219,7 @@
     }).join("");
     raiz.innerHTML =
       '<a class="volver" href="#panel">← Volver al panel</a>' +
-      '<header class="cab"><div><p class="eyebrow">Nuevo ingreso</p><h1>Registrar ingreso</h1></div></header>' +
+      '<header class="cab"><div><p class="eyebrow">Nuevo ingreso</p><h1>Registrar <em>ingreso</em></h1></div></header>' +
       '<form id="form-nuevo" class="form">' +
         campo("n-nombre", "Nombre y apellido", '<input id="n-nombre" required autocomplete="off">') +
         campo("n-puesto", "Puesto", '<input id="n-puesto" required autocomplete="off">') +
@@ -425,7 +425,7 @@
     }).join("");
 
     raiz.innerHTML =
-      '<header class="cab"><div><p class="eyebrow">Programa estándar</p><h1>Qué recibe cada ingreso</h1>' +
+      '<header class="cab"><div><p class="eyebrow">Programa estándar</p><h1>Qué recibe cada <em>ingreso</em></h1>' +
       '<p class="bajada">Todo ingreso recibe el tronco común más el track de su área. El contenido se edita en <code>contenido.js</code>.</p></div></header>' +
       '<div class="barra-filtros"><div class="chips">' + tabs + "</div></div>" +
       '<div class="pista-intro"><h2>' + esc(actual.nombre) + "</h2><p>" + esc(actual.descripcion) + "</p>" +

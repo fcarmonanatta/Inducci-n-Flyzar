@@ -33,6 +33,10 @@ Roles:
 
 Todo el programa está en [`plataforma/contenido.js`](plataforma/contenido.js). Cada tarea es un bloque con título, detalle, etapa, responsable y tipo. Lo marcado **[VALIDAR]** es una propuesta que tiene que revisar el responsable del área antes de usarlo con un ingreso real. Esto aplica especialmente al track de Pilotos y Mantenimiento: ese entrenamiento es reglamentario y tiene que coincidir con los programas aprobados por la autoridad aeronáutica.
 
+## Identidad visual
+
+La plataforma sigue el Brandbook de Flyzar: logo e isotipo (en `plataforma/marca/`, extraídos en vector del brandbook), Dress Blue (#2a3440) como color principal y los neutros cálidos de la paleta secundaria. Proxima Nova y Tribun no son fuentes web libres, así que se usan equivalentes de Google Fonts (Figtree y Newsreader italic); si Flyzar tiene licencia web de las originales, se reemplazan en `index.html`.
+
 ## Cómo probarla
 
 Abrí `plataforma/index.html` en el navegador. Arranca con tres ingresos de ejemplo (ficticios) que se pueden quitar desde el panel.
