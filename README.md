@@ -44,7 +44,9 @@ Abrí `plataforma/index.html` en el navegador. Arranca con tres ingresos de ejem
 ## Estado y próximos pasos
 
 - [x] **v1 – Prototipo**: programa estándar, checklist por ingreso, autoevaluaciones y panel de seguimiento. Los datos quedan guardados solo en el navegador de quien la usa.
-- [ ] **Validar contenido** con cada responsable de área y cargar el material real (presentaciones, manuales, links de Drive).
+- [x] **Material real vinculado**: presentación institucional, brochures de flota, MOE, Manual General de Mantenimiento, FL3XX, cotizador y procedimientos, con links a Drive. Organigrama, SMS, requisitos de pilotos y Control Operacional tomados del MOE (Rev. 01, jun. 2023).
+- [ ] **Validar contenido** con cada responsable de área (ver marcas "A VALIDAR").
+- [ ] **Redactar lo que falta**: reglamento interno, acuerdo de confidencialidad, organigrama completo (Comercial y FBO), procedimientos de Administración.
 - [ ] **v2 – Uso real**: base de datos compartida y acceso con la cuenta @flyzar.com, con vistas distintas para RR.HH., jefes y nuevos ingresos.
 - [ ] **Avisos automáticos** por mail cuando una tarea está por vencer o vencida.
 - [ ] **Piloto** con el próximo ingreso y ajustes según la encuesta de los 30 días.

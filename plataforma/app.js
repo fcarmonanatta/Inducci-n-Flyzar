@@ -358,11 +358,20 @@
       '<div class="tarea-cuerpo">' +
         '<label for="t-' + t.id + '" class="tarea-tit">' + esc(t.titulo) + "</label>" +
         "<p>" + esc(t.detalle).replace(/\[VALIDAR([^\]]*)\]/g, '<mark class="validar">A VALIDAR$1</mark>') + "</p>" +
+        material(t) +
         '<div class="tarea-meta"><span class="resp">' + esc(t.responsable) + "</span>" +
           '<span class="tipo">' + TIPOS[t.tipo] + "</span>" +
           '<span class="origen">' + esc(t.origen) + "</span>" + cierre + "</div>" +
         quiz +
       "</div></li>";
+  }
+
+  function material(t) {
+    if (!t.material || !t.material.length) return "";
+    return '<ul class="material" aria-label="Documentos">' + t.material.map(function (d) {
+      return '<li><a href="' + esc(d.url) + '" target="_blank" rel="noopener">' + esc(d.nombre) + "</a>" +
+        (d.nota ? ' <span class="doc-nota">' + esc(d.nota) + "</span>" : "") + "</li>";
+    }).join("") + "</ul>";
   }
 
   function formQuiz(t) {
@@ -419,7 +428,8 @@
       var ts = actual.tareas.filter(function (t) { return t.etapa === e.id; });
       return '<section class="col"><header><span class="codigo mono">' + e.codigo + "</span> " + e.nombre + "</header>" +
         (ts.length ? "<ol>" + ts.map(function (t) {
-          return "<li><strong>" + esc(t.titulo) + '</strong><small>' + esc(t.responsable) + " · " + TIPOS[t.tipo] + "</small></li>";
+          return "<li><strong>" + esc(t.titulo) + '</strong><small>' + esc(t.responsable) + " · " + TIPOS[t.tipo] +
+            (t.material && t.material.length ? " · " + t.material.length + (t.material.length > 1 ? " documentos" : " documento") : "") + "</small></li>";
         }).join("") + "</ol>" : '<p class="vacio">—</p>') +
       "</section>";
     }).join("");
